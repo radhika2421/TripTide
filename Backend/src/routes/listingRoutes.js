@@ -4,22 +4,22 @@ import { createNewListing, deleteListing, deleteReview, expressError, getListing
 const router=express.Router();
 
 // listings route
-router.get("/",getListings);
+router.get("/listings",getListings);
 
 // single listing
-router.get("/:id",getSingleListing);
+router.get("/listings/:id",getSingleListing);
 
 // new listing
-router.post("/new-listing",createNewListing);
+router.post("/listings/new-listing",createNewListing);
 
 // review property
-router.post("/:id/review",reviewProperty);
+router.post("/listings/:id/review",reviewProperty);
 
 // delete review
-router.delete("/:propId/:revId/delete-review",deleteReview);
+router.delete("/listings/:propId/:revId/delete-review",deleteReview);
 
 // delete listing
-router.delete("/:id/delete",deleteListing);
+router.delete("/listings/:id/delete",deleteListing);
 
 router.use(expressError);
 

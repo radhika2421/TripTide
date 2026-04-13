@@ -19,13 +19,13 @@ export default function Homepage() {
                 Discover stays that turn trips into getaways.
             </p>
             <div className="flex gap-4 relative">
-                <Link to={"/login"}>
+                {/* <Link to={"/login"}> */}
                     <button
                     className="px-6 py-2 bg-indigo-600 text-white rounded-xl shadow hover:bg-indigo-700 transition"
                     >
                     Login
                     </button>
-                </Link>
+                {/* </Link> */}
 
                 {/* Signup Dropdown */}
                 <div className="relative group">

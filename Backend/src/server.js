@@ -10,7 +10,7 @@ import listingRoutes from './routes/listingRoutes.js';
 dotenv.config();
 
 const app=express()
-const port=process.env.port || 3000;
+const port=process.env.PORT || 3000;
 const __dirname=path.resolve();
 
 await connectDb().then(()=>{
@@ -36,15 +36,18 @@ if(process.env.NODE_ENV!=="production")
 
 
 // app.use("/api/triptide", userRoutes)
-app.use("/api/triptide/listings", listingRoutes)
+app.use("/api/triptide", listingRoutes)
 
 if(process.env.NODE_ENV==="production")
 {
-    // serves built react files dist
+    // // serves built react files dist
     app.use(express.static(path.join(__dirname,"../Frontend/dist")));
     // catches all routes, handle react router, prevents 404 on refresh
-    app.get("*",(req,res)=>{
-        res.sendFile(path.join(__dirname,"/Frontend","dist","index.html"));
+    app.get("/*path",(req,res)=>{
+        res.sendFile(path.join(__dirname,"../Frontend/dist/index.html"));
     })
+    // app.get("/", (req, res) => {
+    //     res.sendFile(path.join(__dirname, "../Frontend/dist/index.html"));
+    //     });
 }
 

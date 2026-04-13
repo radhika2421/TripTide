@@ -4,7 +4,7 @@ import express from "express";
 const router=express.Router();
 
 // index route
-router.get("/",(req,res)=>{
+router.post("/login",(req,res)=>{
     res.status(200).json({message:"Home Page"});
 })
 
